@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Battleship</title>
+  </head>
+  <body>
+    <!-- <button id='place'>place</button> -->
+    <div id="gameboards">
+      
+      <div id="boardOneContainer" class="board-shipyard">
+        <div class='label one'>
+          <span class='fleetOne'>Player One<span>
+        </div>
+        <div class="board" id="boardOne">
+          <div class="coord one"></div>
+          
+        </div>
+        <div class="shipContainer" draggable="false">
+          <div class="ship fi" id="carrier" data-length="5" draggable="true">
+          </div>
+          <div class="ship fo" id="battleship" data-length="4" draggable="true">
+          </div>
+          <div class="ship thr" id="cruiser" data-length="3" draggable="true">
+          </div>
+          <div class="ship thr" id="submariner" data-length="3" draggable="true">
+          </div>
+          <div class="ship two" id="destroyer" data-length="2" draggable="true">
+          </div>
+        </div>
+      </div>
+      <div id="fill">
+        <div id="fillline"></div>
+      </div>
+      <div id="boardTwoContainer" class="board-shipyard">
+        <div class='label two' >
+          <span class='fleetTwo'>Player Two<span>
+        </div>
+        <div class="board" id="boardTwo">
+          <div class="coord two"></div>
+        </div>
+
+        <div class="shipContainer" id='shipyard2' draggable="false">
+          <div class="ship fi" id="carrier2" data-length="5" draggable="true">
+          </div>
+          <div class="ship fo" id="battleship2" data-length="4" draggable="true">
+            
+          </div>
+          <div class="ship thr" id="cruiser2" data-length="3" draggable="true">
+            
+          </div>
+          <div class="ship thr" id="submariner2" data-length="3" draggable="true">
+            
+          </div>
+          <div class="ship two" id="destroyer2" data-length="2" draggable="true">
+         
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+    <div id='axisContainer'>
+    <div class="buttonCont">
+      <span id='X' class="slide">X</span>
+      <span id='Y' class="slide out">Y</span> 
+    </div>
+     <button id="axisBtn" class="x">Change Axis</button>
+    </div>
+<!-- <button id='extreminatus'>attack all at once</button> -->
+    <script src="bundle.js"></script>
+  </body>
+</html>
