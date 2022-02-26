@@ -1,0 +1,417 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+body {
+  color: rgb(206, 206, 206);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  color: whitesmoke;
+}
+
+/* gameboards */
+#gameboards {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.cellContainer {
+  width: 44vh;
+  height: 44vh;
+  max-height: 48vw;
+  max-width: 48vw;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  opacity: 1;
+}
+
+#fill {
+  width: 8vw;
+  height: 60vw;
+}
+.board {
+  max-width: 44vh;
+}
+#boardOneContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 44vh;
+}
+#boardTwoContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 44vh;
+}
+#boardOne .cell {
+  background: #c8edff;
+}
+#boardTwo .cell {
+  background: #ececec;
+}
+.cell {
+  border-radius: 2px;
+}
+
+#boardOne .cell.boardOne.invalidPlace {
+  background: #d82626;
+}
+#boardOne .cell.boardOne.validPlace {
+  background: #2fc955;
+}
+#boardTwo .cell.boardTwo.invalidPlace {
+  background: #d82626;
+}
+#boardTwo .cell.boardTwo.validPlace {
+  background: #2fc955;
+}
+/* onload promp */
+
+/* disable board */
+.disabled {
+  pointer-events: none;
+}
+
+/* gameboard hide animation */
+.board {
+  transition: opacity 0.5s ease, transform 1s;
+}
+
+#boardOne.board.hidden {
+  opacity: 0;
+  transform: translateX(-1500px);
+}
+
+#boardTwo.board.hidden {
+  opacity: 0;
+  transform: translateX(1500px);
+}
+
+/* coordinates decoration */
+.coordDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coordLtrs {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #717c96;
+}
+
+.cellContainer .coordDiv:first-child .coordLtrs {
+  color: transparent;
+}
+
+/* ships */
+.shipContainer {
+  height: 8vh;
+  max-width: 24rem;
+  width: 91%;
+  margin-left: 9%;
+  margin-top: 1rem;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  background-color: rgb(230, 236, 238);
+  box-shadow: 1px 1px 3px rgb(184, 184, 184);
+}
+
+.ship {
+  margin: 2px;
+  max-height: 2rem;
+  height: 1.5rem;
+  display: flex;
+  background-color: rgb(175, 167, 184);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgb(105, 105, 105);
+  transition: transform 140ms;
+}
+
+#shipyard2 {
+  transition: opacity 0.5s, transform 1s ease;
+}
+#shipyard2.hidden {
+  opacity: 0;
+  transform: translateX(1500px);
+}
+
+.ship.fi {
+  width: 6rem;
+}
+.ship.fo {
+  width: 5rem;
+}
+.ship.thr {
+  width: 4rem;
+}
+.ship.two {
+  width: 3rem;
+}
+.invisible {
+  display: none;
+}
+/* labels */
+.label {
+  width: 87%;
+  height: 4vh;
+  margin-bottom: 1rem;
+  margin-right: auto;
+  margin-left: 9%;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20px 10px 10px 10px;
+  box-shadow: 2px 2px 5px slategray;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.label.one {
+  background-color: #ff5e93;
+}
+.label.two {
+  background-color: #717c96;
+}
+
+/* buttons */
+button {
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #f85b8e;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px gray;
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
+button:active {
+  box-shadow: 2px 2px 5px rgb(104, 104, 104);
+  transform: translateY(3px);
+}
+.modeBtn {
+  margin: 10px;
+}
+/* axis button */
+.buttonCont {
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  border-radius: 100px;
+  box-shadow: 1px 1px 5px rgb(77, 77, 77);
+  background-color: rgb(56, 56, 56);
+  position: absolute;
+  bottom: 5rem;
+  right: 7rem;
+  transition: bottom 0.4s ease, right 0.4s ease;
+}
+
+#axisBtn {
+  width: 5rem;
+  height: 5rem;
+  border: none;
+  background-color: #32323d;
+  color: #f7f7f7;
+  font-weight: 700;
+  border-radius: 100px;
+  box-shadow: 2px 5px 10px rgba(156, 156, 156, 0.295);
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+#axisBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.281);
+}
+
+#axisBtn:active {
+  transform: translateY(3px);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.377);
+}
+.slide {
+  font-size: 4rem;
+  font-weight: 400;
+  color: rgb(235, 64, 115);
+  transition: transform 0.5s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slide.out {
+  transform: translateX(150px);
+}
+
+/* messages */
+#title {
+  margin: 0;
+  font-size: 14vw;
+  color: #32323d;
+}
+
+#gameModePrompt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#winnerMsg {
+  color: #32323d;
+  font-size: 8vw;
+}
+
+#continueTwo,
+#continueOne {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+}
+
+/* background  */
+.backgroundBlur {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media only screen and (max-width: 950px) {
+  #fill {
+    width: 3vw;
+  }
+  .label {
+    height: 3vh;
+    width: calc(40vw - 13%);
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  #boardOneContainer {
+    width: 55vw;
+  }
+  .cellContainer {
+    height: 40vw;
+    width: 40vw;
+    max-height: none;
+    max-width: none;
+  }
+  #fill {
+    height: 3vw;
+  }
+  .shipContainer {
+    max-width: 36vw;
+    height: 4.5rem;
+  }
+  .label {
+    height: 3vh;
+    width: calc(40vw - 13%);
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #gameboards {
+    flex-direction: column;
+    justify-content: center;
+  }
+  #boardOneContainer {
+    width: 45vw;
+  }
+  .cellContainer {
+    height: 45vw;
+    width: 45vw;
+    max-height: none;
+    max-width: none;
+  }
+  #fill {
+    height: 3vw;
+  }
+  .shipContainer {
+    max-width: 45vw;
+    height: 3rem;
+  }
+  .ship {
+    height: 0.8rem;
+  }
+  #axisBtn {
+    font-size: 0.8rem;
+    width: 4rem;
+    height: 4rem;
+    margin-left: 0;
+  }
+  .buttonCont {
+    bottom: 7rem;
+    right: 2.8rem;
+  }
+  .label {
+    height: 3vh;
+    width: calc(45vw - 13%);
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-height: 750px) {
+  #boardOneContainer {
+    width: 55vw;
+  }
+  #gameboards {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cellContainer {
+    height: 55vw;
+    width: 55vw;
+    max-height: none;
+    max-width: none;
+  }
+  #fill {
+    height: 3vw;
+  }
+  .shipContainer {
+    max-width: 45vw;
+    height: 2rem;
+  }
+  .ship {
+    height: 0.8rem;
+  }
+  #axisBtn {
+    font-size: 0.8rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  .label {
+    height: 1rem;
+    font-size: 1rem;
+  }
+}
